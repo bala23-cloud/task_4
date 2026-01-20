@@ -1,42 +1,60 @@
-# Password Cracking Practice using John the Ripper (Kali Linux)
+# Password Security Analysis – Mini Guide & Report
 
 ## Overview
-This task focuses on understanding how password hashes work and how weak passwords can be cracked using **John the Ripper** in Kali Linux.  
-The practice is done using **sample/demo hashes only** for educational purposes.
+This project explains the basics of password security in a simple and beginner-friendly way.  
+It covers how passwords are stored, common password attacks, and best practices for strong authentication.  
+The goal is to understand **why weak passwords fail** and **how to protect systems** from password-based attacks.
 
 ---
 
 ## Objectives
-- Understand how passwords are stored as hashes
-- Identify different hash types
-- Practice cracking weak password hashes
-- Learn dictionary and brute-force attacks
-- Understand why strong passwords and MFA are important
+- Learn the difference between hashing and encryption
+- Identify common password hash types
+- Understand password cracking techniques
+- Analyze why weak passwords are insecure
+- Learn the importance of MFA (Multi-Factor Authentication)
+- Recommend strong authentication practices
 
 ---
 
-## Tools Used
-- Kali Linux
-- John the Ripper
-- Nano text editor
-- RockYou wordlist
+## Mini Guide: Password Security
+
+### 1. How Passwords Are Stored (Hashing vs Encryption)
+
+**Hashing**
+- Converts a password into a fixed-length hash
+- One-way process (cannot be reversed)
+- Used to store passwords securely
+
+**Encryption**
+- Converts data into unreadable form
+- Can be reversed using a key
+- Not recommended for storing passwords
+
+**Example**
+- Password: `admin123`
+- MD5 Hash: `0192023a7bbd73250516f069df18b500`
 
 ---
 
-## Sample Hashes Used
-These hashes are intentionally weak and created for practice only.
+### 2. Types of Password Hashes
 
-| Hash Type | Sample Hash |
-|---------|-------------|
-| MD5 | 5f4dcc3b5aa765d61d8327deb882cf99 |
-| SHA-1 | f865b53623b121fd34ee5426c792e5c33af8c227 |
-| SHA-256 | e0e609c7a9b9c25a6f5d41b5f0d7dceeea8e4a5f0e7a3f1b4d3a9b4d5e6f7a8 |
-| bcrypt | $2y$10$Wq2YzQmZJY1UO9w7lHjJ4uY9h7G2sV2dZzZJ7Yq1Zx1pXbN0ZkDqC |
+| Hash Type | Description |
+|---------|------------|
+| MD5 | Very fast, weak, easily cracked |
+| SHA-1 | Better than MD5 but broken |
+| SHA-256 | Stronger but needs salt |
+| bcrypt | Slow and secure, best choice |
 
 ---
 
-## Steps Performed
+### 3. Generating Password Hashes
 
-### 1. Create Hash File
+Password hashes can be generated using:
+- Linux tools (openssl)
+- Online hash generators
+- Security tools like Hashcat
+
+**Example Command**
 ```bash
-nano john_hashes.txt
+echo -n password | md5sum
